@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+  课程页
+{% endblock %}
+
+{% block link %}
+  <link rel="stylesheet" href={% static 'css/course/course.css' %}>
+{% endblock %}
+
+{% block main_start %}
+  <main id="course-container">
+    <div class="w1200">
+      <ul class="course-list">
+        {% for foo in course %}
+          <li class="course-item">
+            <a href={% url 'course:course_detail' foo.id %}>
+              <img class="course-img" src={{ foo.cover_url }}
+                 alt={{ foo.title }}>
+              <div class="course-content">
+                <p class="course-info">{{ foo.title }}</p>
+                <p class="course-author">{{ foo.teacher.name }}</p>
+                <p class="course-price free">免费</p>
+              </div>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </main>
+{% endblock %}

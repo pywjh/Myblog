@@ -1,0 +1,15 @@
+certifi==2019.3.9
+chardet==3.0.4
+Django==2.1.7
+django-haystack==2.8.1
+django-redis==4.10.0
+elasticsearch==2.4.1
+idna==2.8
+mutagen==1.42.0
+Pillow==5.4.1
+PyMySQL==0.9.3
+pytz==2018.9
+qiniu==7.2.2
+redis==3.2.1
+requests==2.21.0
+urllib3==1.24.1

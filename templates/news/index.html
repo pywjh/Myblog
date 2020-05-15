@@ -1,0 +1,218 @@
+{% extends 'base/base.html' %}
+{% block title %}
+  首页
+{% endblock %}
+
+<!-- css link start -->
+{% block link %}
+  <link rel="stylesheet" href={% static 'css/news/index.css' %}>
+{% endblock %}
+<!-- css link end -->
+
+<!-- main-contain start  -->
+{% block main_contain %}
+  <div class="main-contain">
+    <!-- banner start -->
+    <div class="banner">
+      <ul class="pic">
+{#        <!--淡入淡出banner-->#}
+{##}
+{##}
+{#        <li><a href="javascript:void(0);"><img src={% static 'images/linux.jpg' %} alt="test"></a></li>#}
+{##}
+{##}
+{#        <li><a href="javascript:void(0);"><img src={% static 'images/python_gui.jpg' %} alt="test"></a></li>#}
+{##}
+{##}
+{#        <li><a href="javascript:void(0);"><img src={% static 'images/python_function.jpg' %} alt="test"></a></li>#}
+{##}
+{##}
+{#        <li><a href="javascript:void(0);"><img src={% static 'images/python_advanced.jpg' %} alt="test"></a></li>#}
+{##}
+{##}
+{#        <li><a href="javascript:void(0);"><img src={% static 'images/jichujiaochen.jpeg' %} alt="test"></a></li>#}
+{##}
+{##}
+{#        <li><a href="javascript:void(0);"><img src={% static 'images/python_web.jpg' %} alt="test"></a></li>#}
+
+
+      </ul>
+      <a href="javascript:void(0);" class="btn prev">
+        <i class="PyWhich py-arrow-left"></i></a>
+      <a href="javascript:void(0);" class="btn next">
+        <i class="PyWhich py-arrow-right"></i></a>
+      <ul class="tab">
+        <!-- 按钮数量必须和图片一致 -->
+
+
+{#        <li></li>#}
+{##}
+{##}
+{#        <li></li>#}
+{##}
+{##}
+{#        <li></li>#}
+{##}
+{##}
+{#        <li></li>#}
+{##}
+{##}
+{#        <li></li>#}
+{##}
+{##}
+{#        <li></li>#}
+
+
+      </ul>
+    </div>
+    <!-- banner end -->
+
+    <!-- content start -->
+    <div class="content">
+      <!-- recommend-news start -->
+      <ul class="recommend-news">
+        {% for hot_new in hot_news %}
+           <li>
+          <a href={% url 'news:news_detail' hot_new.news_id %} target="_blank">
+            <div class="recommend-thumbnail">
+              <img src="{{ hot_new.news.image_url }}" alt="{{ hot_new.news.title }}">
+            </div>
+            <p class="info">{{ hot_new.news.title }}</p>
+          </a>
+        </li>
+        {% endfor %}
+
+      </ul>
+      <!-- recommend-news end -->
+
+      <!--  news-nav start-->
+      <nav class="news-nav">
+        <ul class="clearfix">
+          <li class="active"><a href="javascript:void(0)">最新资讯</a></li>
+
+          {% for tag in tags %}
+            <li><a href="javascript:void(0)" data-id="{{ tag.id }}">{{ tag.name }}</a></li>
+          {% endfor %}
+
+
+          {#          <li><a href="javascript:void(0)" data-id="1">python框架</a>#}
+          {#          </li>#}
+          {##}
+          {#          <li><a href="javascript:void(0)" data-id="2">Python基础</a>#}
+          {#          </li>#}
+          {##}
+          {#          <li><a href="javascript:void(0)" data-id="3">Python高级</a>#}
+          {#          </li>#}
+          {##}
+          {#          <li><a href="javascript:void(0)" data-id="4">Python函数</a>#}
+          {#          </li>#}
+          {##}
+          {#          <li><a href="javascript:void(0)" data-id="5">PythonGUI</a>#}
+          {#          </li>#}
+          {##}
+          {#          <li><a href="javascript:void(0)" data-id="6">Linux教程</a>#}
+          {#          </li>#}
+
+        </ul>
+      </nav>
+      <!--  news-nav end -->
+
+      <!-- news-contain start -->
+      <div class="news-contain">
+        <ul class="news-list">
+
+        </ul>
+      </div>
+      <!-- news-contain end -->
+
+      <!-- btn-more start -->
+      <a href="javascript:void(0);" class="btn-more">加载更多</a>
+      <!-- btn-more end -->
+    </div>
+    <!-- content end -->
+  </div>
+{% endblock %}
+<!-- main-contain  end -->
+
+{% block side %}
+  <!-- side start -->
+  <aside class="side">
+    <div class="side-activities">
+      <h3 class="activities-title">在线课堂<a href="javascript:void(0)">更多</a></h3>
+      <div class="activities-img">
+        <a href="javascript:void(0);" target="_blank">
+          <img src={% static 'images/english.jpg' %} alt="title">
+        </a>
+        <p class="activities-tips">对话国外小姐姐</p>
+      </div>
+      <ul class="activities-list">
+        <li>
+          <a href="javascript:void(0);" target="_blank">
+            <span class="active-status active-start">报名中</span>
+            <span class="active-title"><a
+               href="https://www.shiguangkey.com/course/2432"> Django 项目班</a></span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" target="_blank">
+            <span class="active-status active-end">已结束</span>
+            <span class="active-title"><a
+               href="https://www.shiguangkey.com/course/2321">Python入门基础班</a></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="side-attention clearfix">
+      <h3 class="attention-title">关注我</h3>
+      <ul class="side-attention-address">
+        <li>
+          <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-GitHub"></i>pywjh</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-zhihu"
+                                                           style="color:rgb(0, 108, 226);"></i>pywjh</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-weibo"
+                                                           style="color:rgb(245,92,110);"></i>pywjh</a>
+        </li>
+      </ul>
+      <div class="side-attention-qr">
+        <p>扫码关注</p>
+      </div>
+    </div>
+
+    {% block hot_recommend %}
+      <div class="side-hot-recommend">
+        <h3 class="hot-recommend">热门推荐</h3>
+        <ul class="hot-news-list">
+
+          <li>
+            <a href="javascript:void(0)" class="hot-news-contain clearfix">
+              <div class="hot-news-thumbnail">
+                <img src={% static 'images/python_web.jpg' %}
+                        alt="">
+              </div>
+              <div class="hot-news-content">
+                <p class="hot-news-title">Django调试工具django-debug-toolbar安装使用教程</p>
+                <div class="hot-news-other clearfix">
+                  <span class="news-type">python框架</span>
+                  <!-- 自带的 -->
+                  <time class="news-pub-time">11月11日</time>
+                  <span class="news-author">python</span>
+                </div>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    {% endblock %}
+
+  </aside>
+  <!-- side end -->
+{% endblock %}
+
+{% block script %}
+  <script src={% static 'js/news/index.js' %}></script>
+{% endblock %}

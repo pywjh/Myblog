@@ -1,0 +1,11 @@
+# 将文件名更改为my.cnf
+[client]
+database = 数据库库名
+user = 数据库用户名
+password = 用户名密码
+host = 数据库host
+port = 数据库port
+default-character-set = utf8
+
+
+
